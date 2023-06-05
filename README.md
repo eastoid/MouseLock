@@ -4,9 +4,9 @@ Locks cursor in place, logs mouse movements
 Default delay: Cursor pos check: 10ms, Loop when movement detected: 10,000 cycles                                                                                                                                                                                                   
 Writes to user.home\MouseMovementLog.txt                                                                                                                                                                                                                                           
 Allows disabling logging into a file                                                                                                                                                                                                                                          
-
-Default bind:
-Close -> CTRL+Q
-Open log -> CTRL+O
-
-changable
+                                                                                                                                                                                                                     
+Default bind:                                                                                                                                                                                                                     
+Close -> CTRL+Q                                                                                                                                                                                                                     
+Open log -> CTRL+O                                                                                                                                                                                                                     
+                                                                                                                                                                                                                     
+changable                                                                                                                                                                                                                     
