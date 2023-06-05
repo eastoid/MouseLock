@@ -40,7 +40,7 @@ tasks {
         exclude("unwantedFile.txt")
 
         manifest {
-            attributes["Main-Class"] = "mover.MouseMoverKt"
+            attributes["Main-Class"] = "mogware.MouseLockKt"
         }
     }
 }
