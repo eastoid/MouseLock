@@ -156,12 +156,19 @@ class GlobalKeyListener : NativeKeyListener {
     override fun nativeKeyPressed(event: NativeKeyEvent) {
         // Exit if user presses Ctrl + Q
         if (event.keyCode == NativeKeyEvent.VC_Q && event.modifiers and NativeKeyEvent.CTRL_MASK != 0) {
+            
             status = "stop"
             GlobalScreen.unregisterNativeHook()
             val writer = FileWriter(file, true)
             writer.write("\n\n -- PROGRAM CLOSED -- ${Date()}\n//////\n")
             writer.close()
             exitProcess(69)
+        }
+        
+        if (event.keyCode == NativeKeyEvent.VC_O && event.modifiers and NativeKeyEvent.CTRL_MASK != 0) {
+            
+            val desktop = Desktop.getDesktop()
+            desktop.open(file)
         }
 
     }
