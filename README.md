@@ -10,3 +10,7 @@ Close -> CTRL+Q
 Open log -> CTRL+O                                                                                                                                                                                                                     
                                                                                                                                                                                                                      
 changable                                                                                                                                                                                                                     
+
+do:                                             
+add sleep to loop                            
+remove scanner close                                         
