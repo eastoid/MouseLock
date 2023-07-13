@@ -12,8 +12,9 @@ gradle build ShadowJar
 + Default delay: Cursor pos check: 10ms, Loop when movement detected: 10,000 cycles                                                                                            
 + Writes to userprofile\MouseMovementLog.txt                                                                                             
 + Allows disabling logging into a file
-
++ Administrator window in focus blocks mouse robot. Run .jar file as administrator to prevent robot fails.
   
 Default bind:                                                                                                                                                                                                                     
 Close -> CTRL+Q                                                                                                                                                                                                                     
 Open log -> CTRL+O                                                                                                                                                                       
+
