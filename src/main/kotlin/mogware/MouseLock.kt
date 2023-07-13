@@ -6,6 +6,7 @@ import com.github.kwhat.jnativehook.keyboard.NativeKeyListener
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.awt.Desktop
 import java.awt.MouseInfo
 import java.awt.Point
 import java.awt.Robot
@@ -15,8 +16,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.system.exitProcess
 
+
 // Important variable - First time setup prompt  (Enable or disable logging prompt) - true by default, false allows running program first time without UI     -     Default logging is turned ON without prompt!
-val allowPrompt = true
+val allowPrompt = false
 
 // Enables logging into a file: (yes / no) - Default: YES (Change in config file)
 var enableLogging = "yes"
@@ -120,10 +122,26 @@ fun useless(posHor: Int, posVer: Int) {
 
 /** Function to handle mouse movement */
 fun centerMouseFunction(posHor: Int, posVer: Int) {
-    movements++
     val date = "   ${Date()}   "
 
     val warningText = "===== $movements ===    ${java.time.LocalTime.now().hour}.${java.time.LocalTime.now().minute}.${java.time.LocalTime.now().second}    ====="
+    if (posHor < 10 || posVer < 10 || posHor > 800 || posVer > 800) {
+        robot.mouseMove(positionHorizontal, positionVertical)
+        val warningOne = "Device is in sleep mode:  $date  -   positions: $posHor, $posVer"
+        if (enableLogging == "yes") {
+            CoroutineScope(Dispatchers.IO).launch {
+                println("Logging...")
+                val writer = FileWriter(file, true)
+                writer.write("$warningText\n$warningOne\n\n")
+                writer.close()
+            }
+            println("$warningText\n$warningOne")
+        }
+
+        return
+    }
+
+    movements++
     val warningOne = "Movement detected at: $date"
     val warningTwo = "Positions out of order: X: $posHor, Y: $posVer"
     val warning = "\n$warningText\n$warningOne\n$warningTwo"
@@ -137,7 +155,7 @@ fun centerMouseFunction(posHor: Int, posVer: Int) {
         }
     }
 
-    println("$warning")
+    println(warning)
 
     for (i in 1..10000) {
         //println("Testing purpose: i: '$i' - After movement loop (10,000 passes)")   << Print every movement pass after mouse detection is triggered - 10,000 passes by default
@@ -156,7 +174,6 @@ class GlobalKeyListener : NativeKeyListener {
     override fun nativeKeyPressed(event: NativeKeyEvent) {
         // Exit if user presses Ctrl + Q
         if (event.keyCode == NativeKeyEvent.VC_Q && event.modifiers and NativeKeyEvent.CTRL_MASK != 0) {
-            
             status = "stop"
             GlobalScreen.unregisterNativeHook()
             val writer = FileWriter(file, true)
@@ -164,13 +181,13 @@ class GlobalKeyListener : NativeKeyListener {
             writer.close()
             exitProcess(69)
         }
-        
         if (event.keyCode == NativeKeyEvent.VC_O && event.modifiers and NativeKeyEvent.CTRL_MASK != 0) {
-            
+
             val desktop = Desktop.getDesktop()
             desktop.open(file)
-        }
 
+
+        }
     }
 }
 
