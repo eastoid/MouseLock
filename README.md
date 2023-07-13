@@ -1,4 +1,5 @@
-# MouseLock (Windows (might or might not work on linux))
+# MouseLock for windows
+> Might work on Linux who knows
 ### = Locks cursor in place, logs mouse movements =
 Build:
 ```gradle
