@@ -1,4 +1,5 @@
 # MouseLock for windows
+Issue: Doesnt lock upon waking pc up
 > Might work on Linux who knows
 ### = Locks cursor in place, logs mouse movements =
 Build:
