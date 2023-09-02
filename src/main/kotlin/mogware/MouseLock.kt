@@ -17,6 +17,24 @@ import java.util.*
 import kotlin.system.exitProcess
 
 
+
+
+/*
+
+    Gonna refactor code eventually
+    for now enjoy true italian spaghetti
+
+
+
+
+*/
+
+
+
+
+
+
+
 // Important variable - First time setup prompt  (Enable or disable logging prompt) - true by default, false allows running program first time without UI     -     Default logging is turned ON without prompt!
 val allowPrompt = false
 
