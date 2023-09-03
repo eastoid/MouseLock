@@ -1,22 +1,27 @@
-# MouseLock for windows
-gonna rewrite
-Issue: Doesnt lock upon waking pc up (sometimes..?)
-> Might work on Linux who knows
-### = Locks cursor in place, logs mouse movements =
-Build:
+# MouseLock for windows  (might work on linux to some extent)                                                                                                                                                                                                                                                    
+#### Locks cursor in place, logs mouse movements and prevents device sleep (default actions, changable easily with top level values - must rebuild with command below)
+
+<br />
+
+Keybinds:
+- **Exit program:** ㅤ*CTRL + Q*
+- **Open Log file:** ㅤ*CTRL + O*
+<br />
+How to customize: <br /> -> Edit top level values and build with the following command ():
+
 ```gradle
-gradle build ShadowJar                                                                                    
+gradle build ShadowJar
 ```
+<br />
 
----
-
-> (CPU 'optimized' version, all delays and important variables are highlited at the top of the file)
-+ Default delay: Cursor pos check: 10ms, Loop when movement detected: 10,000 cycles                                                                                            
-+ Writes to userprofile\MouseMovementLog.txt                                                                                             
-+ Allows disabling logging into a file
-+ Administrator window in focus blocks mouse robot. Run .jar file as administrator to prevent robot fails.
-  
-Default bind:                                                                                                                                                                                                                     
-Close -> CTRL+Q                                                                                                                                                                                                                     
-Open log -> CTRL+O                                                                                                                                                                       
-
+Editable values (All ON by default):
+- Printing of program output (Movement logging in console, etc.)
+- Printing of prompt for logging (Asking whether you want to log outputs into log file  -  default logging is turned on) - not recommended to turn off (runs only once if you create logfile as well)
+- Printing of error message when program turns off <br />
+- Allow Prompt: ON by default, asks (first time running) if user wants to log into log file
+- Allow preventing device sleep (automatic micro mouse movements)
+- Prevent sleep Timer: How often to prevent sleep (unimportant value, default: 30,000 MS) <br />
+- Enable Logging: Main value to enable or disable logging to logfile
+- Log file location - default value: users/yourUsername/MouseMovementLog.txt <br />
+- Position (horizontal, vertical): Pixel position to lock mouse at
+- Check for mouse movement delay: Default 10ms to check for mouse movement
