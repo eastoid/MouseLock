@@ -5,6 +5,9 @@ Also knows when device goes to sleep mode and prevents movement (only if prevent
 
 <br />
 
+Todo: Suspendable movement scanner 
+<br />
+
 Keybinds:
 - **Exit program:** ㅤ*CTRL + Q*
 - **Open Log file:** ㅤ*CTRL + O*
