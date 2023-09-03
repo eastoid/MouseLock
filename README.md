@@ -1,6 +1,8 @@
 # MouseLock for windows  (might work on linux to some extent)                                                                                                                                                                                                                                                    
 #### Locks cursor in place, logs mouse movements and prevents device sleep (default actions, changable easily with top level values - must rebuild with command below)
 
+Also knows when device goes to sleep mode and prevents movement (only if prevent sleep mode is off)
+
 <br />
 
 Keybinds:
