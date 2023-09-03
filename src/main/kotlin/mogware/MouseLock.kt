@@ -43,11 +43,11 @@ var exception: String = ""
 
 var file: File = File("empty") // Logging enabled by default
 val formatter: SimpleDateFormat = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
+val createFile = File("${System.getProperty("user.home")}\\MouseMovementLog.txt")
 
 
 fun main() {
 
-    val createFile = File("${System.getProperty("user.home")}\\MouseMovementLog.txt")
     val checkConfig: String = checkConfig(createFile)
 
 
@@ -208,7 +208,9 @@ fun centerMouseFunction(posHor: Int, posVer: Int) {
 
     if (printOutput) println(warning)
 
-    for (i in 1..10000) {
+
+
+    for (i in 1..1000) {
         robot.mouseMove(positionHorizontal, positionVertical)
     }
 
