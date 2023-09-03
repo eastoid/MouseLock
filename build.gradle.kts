@@ -14,11 +14,10 @@ repositories {
 }
 
 dependencies {
-//    implementation("com.1stleg:jnativehook:2.1.0")
 
     implementation("com.github.kwhat:jnativehook:2.2.2")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:+")
 
     testImplementation(kotlin("test"))
 }
